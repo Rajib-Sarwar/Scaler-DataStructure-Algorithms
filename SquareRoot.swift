@@ -1,4 +1,36 @@
 //Approach 1
+func SquareRoot(int A) -> Int {
+        var i=1;
+        while(i*i <= A) {
+            if i*i == A { 
+                return i
+            }
+            i += 1
+        }
+        return -1;
+}
+/***
+Time Complexity
+The program executes square root of n times on every execution, so the time complexity is O(sqrt(n))
+***/
+
+//MARK: Improvement
+func SquareRoot(int A) -> Int {
+        var i=1;
+        while(i <= A/i) {
+            if i == A/i { 
+                return i
+            }
+            i += 1
+        }
+        return -1;
+}
+/***
+Time complexity remains same. To avoid Integer overflow
+***/
+
+
+//Approach 2
 func SquareRoot(_ A: Int) -> Int {
         var low = 1
         var high = A
@@ -16,7 +48,6 @@ func SquareRoot(_ A: Int) -> Int {
         }
         return -1
 }
-
 /***
 Time Complexity
 The program eliminates half of the possibilities on every execution, so that time complexity is O(log(n))
@@ -42,5 +73,6 @@ func SquareRoot(_ A: Int) -> Int {
         return -1
 }
 /***
+Skip unnecessary high range.
 Time complexity remains same as previous solution
 ***/
